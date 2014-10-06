@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+  <%= link_to "Home", root_path %>
+  <%= link_to "New List", new_list_path %>
+</nav>
 
 <%= yield %>
 

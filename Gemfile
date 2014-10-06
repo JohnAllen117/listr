@@ -13,6 +13,7 @@ gem 'simple_form'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
 gem 'rails_12factor', group: :production
+gem 'redcarpet'
 
 group :development, :test do
   gem 'rails-erd', git: 'https://github.com/paulwittmann/rails-erd', branch: 'mavericks'
@@ -32,4 +33,8 @@ end
 
 group :test do
   gem 'coveralls', require: false
+end
+
+group :development do
+  gem 'better_errors'
 end
