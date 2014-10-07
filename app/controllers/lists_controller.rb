@@ -13,7 +13,6 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-
     if @list.save
       flash[:notice] = "List Created"
       redirect_to list_path(@list)
@@ -42,7 +41,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.likes += 1
   end
-  
+
   private
 
   def list_params

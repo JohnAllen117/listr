@@ -1,5 +1,7 @@
-<h1>Welcome to Listr!</h1>
-<% @lists.each do |list| %>
-  <p><%= list.likes %> - <%= link_to list.title, list_path(list) %></p>
-<% end %>
-<break>
+<div id="list_index">
+  <ul>
+  <% @lists.each do |list| %>
+    <li><%= link_to "#{list.likes} - #{list.title}", list_path(list) %></li>
+  <% end %>
+  </ul>
+</div>
