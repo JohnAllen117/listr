@@ -4,15 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Listr" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
-  <nav class="top-bar">
-    <%= link_to "Home", root_path %>
-    <%= link_to "New List", new_list_path %>
+  <nav class="top-bar" data-topbar role="navigation">
+    <ul class="title-area">
+      <li class ="name">
+        <h1><%= link_to "Listr", root_path %></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+    <section class="top-bar-section">
+      <ul class="left">
+        <li><%= link_to "New List", new_list_path %></li>
+      </ul>
+    </section>
   </nav>
 
   <% if flash[:notice] %>
