@@ -7,12 +7,12 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'spring',        group: :development
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'simple_form'
 gem 'foundation-rails'
 gem 'font-awesome-rails'
 gem 'rails_12factor', group: :production
+gem 'redcarpet'
 
 group :development, :test do
   gem 'rails-erd', git: 'https://github.com/paulwittmann/rails-erd', branch: 'mavericks'
@@ -32,4 +32,9 @@ end
 
 group :test do
   gem 'coveralls', require: false
+end
+
+group :development do
+  gem 'better_errors'
+  gem 'spring'
 end

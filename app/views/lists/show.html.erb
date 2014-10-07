@@ -1,0 +1,4 @@
+<h1><%= @list.title %></h1>
+<%= link_to 'Like', "/lists/#{@list.id}/like" %>
+<%= render_markdown(@list.content) %>
+<%= link_to 'Edit', edit_list_path(@list) %>
