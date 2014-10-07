@@ -1,5 +1,5 @@
 <div id="list_index">
-  <ul>
+  <ul class="rolldown-list", id="myList">
   <% @lists.each do |list| %>
     <li><%= link_to "#{list.likes} - #{list.title}", list_path(list) %></li>
   <% end %>
