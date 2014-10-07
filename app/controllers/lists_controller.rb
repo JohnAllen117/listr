@@ -17,7 +17,7 @@ class ListsController < ApplicationController
       flash[:notice] = "List Created"
       redirect_to list_path(@list)
     else
-      flash[:notice] = "Invalid entry"
+      flash[:notice] = "Invalid Entry"
       render :new
     end
   end
