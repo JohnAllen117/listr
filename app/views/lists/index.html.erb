@@ -1,7 +1,7 @@
-<div id="list_index">
-  <ul class="rolldown-list", id="myList">
+<div>
+  <ul class="small-block-grid-1">
   <% @lists.each do |list| %>
-    <li><%= link_to "#{list.likes} - #{list.title}", list_path(list) %></li>
+    <li class="list_element"><%= link_to "#{list.likes} - #{list.title}", list_path(list) %></li>
   <% end %>
   </ul>
 </div>

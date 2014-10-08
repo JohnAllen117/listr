@@ -37,5 +37,3 @@ end
 group :development do
   gem 'spring'
 end
-
-gem 'compass-rails'
