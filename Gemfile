@@ -35,6 +35,5 @@ group :test do
 end
 
 group :development do
-  gem 'better_errors'
   gem 'spring'
 end

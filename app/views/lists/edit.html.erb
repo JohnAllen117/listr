@@ -1,13 +1,15 @@
 <% provide(:title, 'Edit List') %>
+<form>
+  <%= simple_form_for(@list) do |f| %>
+    <%= f.error_notification %>
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.input :title, required: true, autofocus: true %>
+        <%= f.input :content, require: true, as: :text, input_html: { rows: 25 } %>
+      </div>
+    <%= f.button :submit, class: "button expand" %>
 
-<div class="form-wrapper">
-<%= simple_form_for(@list) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :title, required: true, autofocus: true %>
-  <%= f.input :content, require: true, as: :text %>
-  <%= f.button :submit %>
-
-<% end %>
-</div>
-<%= link_to "Unsure how to format?", "https://guides.github.com/features/mastering-markdown/" %>
+  <% end %>
+</form>
+<break>
+<%= link_to "Unsure how to format?", "https://guides.github.com/features/mastering-markdown/", class: "button tiny", target: "_blank" %>

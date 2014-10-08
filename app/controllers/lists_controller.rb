@@ -13,12 +13,11 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-
     if @list.save
       flash[:notice] = "List Created"
       redirect_to list_path(@list)
     else
-      flash[:notice] = "Invalid entry"
+      flash[:notice] = "Invalid Entry"
       render :new
     end
   end
@@ -33,16 +32,11 @@ class ListsController < ApplicationController
       flash[:notice] = "List updated"
       redirect_to list_path(@list)
     else
-      flash[:notice] = "Invalid entry"
+      flash[:notice] = "Invalid Entry"
       render :edit
     end
   end
 
-  def like
-    @list = List.find(params[:id])
-    @list.likes += 1
-  end
-  
   private
 
   def list_params

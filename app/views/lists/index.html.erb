@@ -1,5 +1,15 @@
-<h1>Welcome to Listr!</h1>
-<% @lists.each do |list| %>
-  <p><%= list.likes %> - <%= link_to list.title, list_path(list) %></p>
-<% end %>
-<break>
+<div class="row collapse">
+  <div class="small-12 large-4 columns">
+    <ul class="list">
+    <% @lists.each do |list| %>
+      <li class="list_element"><%= link_to "#{list.likes} - #{list.title}", list_path(list) %></li>
+    <% end %>
+    </ul>
+  </div>
+  <div class="small-12 show-for-medium-up">
+    <h1>Markdown</h1>
+    <p>
+      other stuff
+    </p>
+  </div>
+</div>
