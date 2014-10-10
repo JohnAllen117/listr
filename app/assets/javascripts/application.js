@@ -16,5 +16,3 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
-
-// This just increments the delay on each item

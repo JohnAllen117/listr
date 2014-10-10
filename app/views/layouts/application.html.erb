@@ -45,8 +45,25 @@
   <% end %>
 
   <body>
+  <div class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+      <nav class="tab-bar">
+        <section class="right-small">
+          <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      <aside class="right-off-canvas-menu">
+        <ul class="off-canvas-list">
+          <li><label>Categories</label></li>
+          <% @categories.each do |category| %>
+            <%= link_to category.name %>
+          <% end %>
+        </ul>
+      </aside>
+    <a class="exit-off-canvas"></a>
+    </div>
+  </div>
 
     <%= yield %>
 
+    <%= javascript_include_tag "application" %>
   </body>
 </html>
