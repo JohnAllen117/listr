@@ -37,9 +37,6 @@ ActiveRecord::Schema.define(version: 20141009191256) do
   create_table "users", force: true do |t|
     t.string   "provider",         null: false
     t.string   "uid",              null: false
-    t.string   "email",            null: false
-    t.string   "name",             null: false
-    t.string   "image"
     t.string   "oauth_token",      null: false
     t.datetime "oauth_expires_at", null: false
     t.datetime "created_at"
