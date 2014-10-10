@@ -23,6 +23,14 @@
         <li><%= link_to "New List", new_list_path %></li>
       </ul>
     </section>
+      <div id="user_nav" class="right">
+        <% if current_user %>
+          Signed in as <strong><%= current_user.name %></strong>!
+          <%= link_to "Sign out", signout_path, id: "sign_out" %>
+        <% else %>
+          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+        <% end %>
+      </div>
   </nav>
 
   <% if flash[:notice] %>

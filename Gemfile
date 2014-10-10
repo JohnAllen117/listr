@@ -13,6 +13,7 @@ gem 'foundation-rails'
 gem 'font-awesome-rails'
 gem 'rails_12factor', group: :production
 gem 'redcarpet'
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'rails-erd', git: 'https://github.com/paulwittmann/rails-erd', branch: 'mavericks'
