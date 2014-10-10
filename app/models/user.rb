@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
-validates :provider, presence: true
-validates :uid, presence: true, uniqueness: true
-validates :email, presence: true, uniqueness: true
-validates :name, presence: true
-validates :oauth_token, presence: true
-validates :oauth_expires_at, presence: true
+  validates :provider, presence: true
+  validates :uid, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :name, presence: true
+  validates :oauth_token, presence: true
+  validates :oauth_expires_at, presence: true
 
   def self.from_omniauth(auth)
     find_or_initialize_by(provider: auth.provider, uid: auth.uid) do |user|
