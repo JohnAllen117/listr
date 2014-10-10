@@ -6,7 +6,6 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Listr" %></title>
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "app/assets/javascripts/facebook" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
@@ -20,18 +19,21 @@
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
     <section class="top-bar-section">
-      <ul class="left">
+      <ul class="left active">
         <li><%= link_to "New List", new_list_path %></li>
       </ul>
     </section>
-      <div id="user_nav" class="right">
+    <section class="top-bar-section right">
+      <ul>
         <% if current_user %>
-          Signed in as <strong><%= current_user.name %></strong>!
-          <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          <li> <%= image_tag(current_user.image, class: "top_bar_picture") %></li>
+          <li> <%= link_to current_user.first_name, user_path(current_user) %> </li>
+          <li><%= link_to "Sign out", signout_path, id: "sign_out", class: "sign_out" %></li>
         <% else %>
           <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
         <% end %>
-      </div>
+      </ul>
+    </section>
   </nav>
 
   <% if flash[:notice] %>
