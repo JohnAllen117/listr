@@ -30,7 +30,7 @@
           <li> <%= link_to current_user.first_name, user_path(current_user) %> </li>
           <li><%= link_to "Sign out", signout_path, id: "sign_out", class: "sign_out" %></li>
         <% else %>
-          <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+          <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %></li>
         <% end %>
       </ul>
     </section>
@@ -45,22 +45,6 @@
   <% end %>
 
   <body>
-  <div class="off-canvas-wrap" data-offcanvas>
-    <div class="inner-wrap">
-      <nav class="tab-bar">
-        <section class="right-small">
-          <a class="right-off-canvas-toggle menu-icon" href="#"><span></span></a>
-      <aside class="right-off-canvas-menu">
-        <ul class="off-canvas-list">
-          <li><label>Categories</label></li>
-          <% @categories.each do |category| %>
-            <%= link_to category.name %>
-          <% end %>
-        </ul>
-      </aside>
-    <a class="exit-off-canvas"></a>
-    </div>
-  </div>
 
     <%= yield %>
 

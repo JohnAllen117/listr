@@ -1,7 +1,6 @@
 class ListsController < ApplicationController
   def index
     @lists = List.all
-    @categories = Category.all
   end
 
   def show

@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates :oauth_token, presence: true
   validates :oauth_expires_at, presence: true
 
+  has_many :lists
   def self.from_omniauth(auth)
     find_or_initialize_by(provider: auth.provider, uid: auth.uid) do |user|
       user.provider = auth.provider
