@@ -44,6 +44,9 @@ class ListsController < ApplicationController
   end
 
   def authenticate_user_for_action!
-
+    unless current_user == @list.user
+      flash[:notice] = "You aren't authorized to do that."
+      redirect_to 'root_path'
+    end
   end
 end
