@@ -42,4 +42,8 @@ class ListsController < ApplicationController
   def list_params
     params.require(:list).permit(:title, :content)
   end
+
+  def authenticate_user_for_action!
+
+  end
 end
