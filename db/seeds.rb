@@ -3,21 +3,21 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   cities = City.create([{ name: "Chicago" }, { name: "Copenhagen" }])
+#   Mayor.create(name: "Emanuel", city: cities.first)
 # importer = Importer.new(categories.csv)
 
-require 'csv'
+require "csv"
 
-filename = Rails.root.join('db/data/categories.csv')
+filename = Rails.root.join("db/data/categories.csv")
 
 CSV.foreach(filename, headers: true) do |row|
   attributes = row.to_hash
   category = Category.find_by(attributes)
   if category
-    puts "#{row['name']} category already exists."
+    puts "#{row["name"]} category already exists."
   else
     Category.create(attributes)
-    puts "#{row['name']} category created."
+    puts "#{row["name"]} category created."
   end
 end

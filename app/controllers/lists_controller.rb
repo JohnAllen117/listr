@@ -18,10 +18,10 @@ class ListsController < ApplicationController
     @list.user_id = current_user.id
 
     if @list.save
-      flash[:notice] = 'List Created'
+      flash[:notice] = "List Created"
       redirect_to list_path(@list)
     else
-      flash[:notice] = 'Invalid Entry'
+      flash[:notice] = "Invalid Entry"
       render :new
     end
   end
@@ -35,10 +35,10 @@ class ListsController < ApplicationController
     authenticate_user_for_action!
     @list = List.find(params[:id])
     if @list.update(list_params)
-      flash[:notice] = 'List updated'
+      flash[:notice] = "List updated"
       redirect_to list_path(@list)
     else
-      flash[:notice] = 'Invalid Entry'
+      flash[:notice] = "Invalid Entry"
       render :edit
     end
   end
@@ -49,7 +49,7 @@ class ListsController < ApplicationController
 
     List.destroy(params[:id])
 
-    redirect_to root_path, notice: 'List deleted.'
+    redirect_to root_path, notice: "List deleted."
   end
   private
 
@@ -66,7 +66,7 @@ class ListsController < ApplicationController
 
   def signed_in?
     unless current_user
-      flash[:notice] = 'You must sign in first!'
+      flash[:notice] = "You must sign in first!"
       redirect_to root_path
     end
   end
