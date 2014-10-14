@@ -15,18 +15,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     @list.user_id = current_user.id
-    categories = []
-    
-    params[:list][:category_ids].each do |category_id|
-      categories << Category.where(id: category_id)
-    end
-    categories.each do |category|
-      unless category == nil
-        @list.categories << category
-      end
-    end
 
-    binding.pry
     if @list.save
       flash[:notice] = "List Created"
       redirect_to list_path(@list)
@@ -56,7 +45,7 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:title, :content, :category_ids)
+    params.require(:list).permit(:title, :content, category_ids: [])
   end
 
   def authenticate_user_for_action!
