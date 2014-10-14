@@ -15,8 +15,18 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     @list.user_id = current_user.id
+    categories = []
+    
+    params[:list][:category_ids].each do |category_id|
+      categories << Category.where(id: category_id)
+    end
+    categories.each do |category|
+      unless category == nil
+        @list.categories << category
+      end
+    end
+
     binding.pry
-    @list.categories = params[:list][:category_ids]
     if @list.save
       flash[:notice] = "List Created"
       redirect_to list_path(@list)
