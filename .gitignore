@@ -16,5 +16,5 @@
 /tmp
 
 /coverage
-.env
-.travis.yml
+/.env
+/.travis.yml
