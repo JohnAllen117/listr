@@ -3,8 +3,8 @@ FactoryGirl.define do
     sequence(:email) { |n| "frank#{n}@tank.com" }
     sequence (:name) { |n| "Frank#{n} Tank" }
     sequence(:first_name) { |n| "Frank#{n}" }
-    provider "Facebook"
-    sequence(:uid) { |n| n }
+    provider "facebook"
+    sequence(:uid) { |n| "#{n}" }
     oauth_token 'abc123'
     oauth_expires_at DateTime.tomorrow
 

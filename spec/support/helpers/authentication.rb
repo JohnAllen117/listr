@@ -2,7 +2,6 @@ module Helpers
  module Authentication
    def sign_in_as(user)
      mock_omni_auth_for(user)
-     binding.pry
      visit root_path
      click_on "Sign in with Facebook"
    end

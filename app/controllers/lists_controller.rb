@@ -32,8 +32,8 @@ class ListsController < ApplicationController
   end
 
   def update
-    authenticate_user_for_action!
     @list = List.find(params[:id])
+    authenticate_user_for_action!
     if @list.update(list_params)
       flash[:notice] = "List updated"
       redirect_to list_path(@list)

@@ -1,5 +1,5 @@
 def write_list(user)
-  sign_in_as(@user)
+  sign_in_as(user)
   visit root_path
 
   click_on "New List"

@@ -14,6 +14,7 @@ require 'rails_helper'
 
   scenario "unsuccessfully" do
     visit root_path
+    sign_in_as(user)
     click_on 'New List'
     click_on 'Create List'
 
@@ -25,8 +26,6 @@ feature "User edits a list" do
   let(:user) { FactoryGirl.create(:user) }
   scenario "successfully" do
     write_list(user)
-    list = FactoryGirl.create(:list)
-    visit list_path(list)
     click_on "Edit"
     fill_in "Content", with: "Updated List Content"
     click_on "Update List"
@@ -37,8 +36,6 @@ feature "User edits a list" do
 
   scenario "unsuccessfully" do
     write_list(user)
-    list = FactoryGirl.create(:list)
-    visit list_path(list)
     click_on "Edit"
     fill_in "Content", with: nil
     click_on "Update List"
