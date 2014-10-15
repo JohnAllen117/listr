@@ -11,3 +11,11 @@ li.list_element {
 ul.list {
   margin: 0;
 }
+
+.top_bar_picture {
+  height: 45px;
+}
+
+.top-bar-section li:not(.has-form) a:not(.button) {
+  line-height: 45px !important;
+}
