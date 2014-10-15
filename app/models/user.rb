@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def is_admin?
+  def admin?
     self.role == "admin"
   end
 end
