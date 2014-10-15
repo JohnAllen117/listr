@@ -1,6 +1,8 @@
 require 'rails_helper'
-feature "User creates a list" do
+  feature "User creates a list" do
+  let(:user) { FactoryGirl.create(:user) }
   scenario "successfully" do
+    sign_in_as(user)
     visit root_path
     click_on 'New List'
     fill_in 'Title', with: "List"
@@ -12,6 +14,7 @@ feature "User creates a list" do
 
   scenario "unsuccessfully" do
     visit root_path
+    sign_in_as(user)
     click_on 'New List'
     click_on 'Create List'
 
@@ -20,9 +23,9 @@ feature "User creates a list" do
 end
 
 feature "User edits a list" do
+  let(:user) { FactoryGirl.create(:user) }
   scenario "successfully" do
-    list = FactoryGirl.create(:list)
-    visit list_path(list)
+    write_list(user)
     click_on "Edit"
     fill_in "Content", with: "Updated List Content"
     click_on "Update List"
@@ -32,8 +35,7 @@ feature "User edits a list" do
   end
 
   scenario "unsuccessfully" do
-    list = FactoryGirl.create(:list)
-    visit list_path(list)
+    write_list(user)
     click_on "Edit"
     fill_in "Content", with: nil
     click_on "Update List"
