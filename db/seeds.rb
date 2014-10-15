@@ -21,3 +21,5 @@ CSV.foreach(filename, headers: true) do |row|
     puts "#{row["name"]} category created."
   end
 end
+user = User.create(provider: "facebook", uid: "32123", email: "fake@fake.com", name: "Fake McFakerson", first_name: "Fake", oauth_token: "32123", oauth_expires_at: "2099-10-16 00:00:00")
+list = List.create(title: "Profanity", content: "More Profanity", user_id: 2)
