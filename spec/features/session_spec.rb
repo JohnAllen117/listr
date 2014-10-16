@@ -10,7 +10,7 @@ feature "user signs" do
   scenario "out" do
     sign_in_as(user)
 
-    click_on 'Sign out'
+    click_on "Sign out"
     expect(page).not_to have_content user.first_name
   end
 end
