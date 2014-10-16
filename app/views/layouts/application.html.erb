@@ -29,10 +29,20 @@
             <li><%= link_to category.name, category_path(category) %></li>
           <% end %>
         </ul>
+        <li class="has-form">
+          <%= form_tag lists_path, method: 'get', class: "has-form" do %>
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <%= text_field_tag :search, nil, placeholder: "Search by title" %>
+              </div>
+              <div class="large-4 small-3 columns">
+                <%= submit_tag "Search", name: nil, class: "alert button expand" %>
+              </div>
+            </div>
+          <% end %>
+        </li>
       </ul>
     </section>
-
-
     <section class="top-bar-section">
       <ul class="right">
         <% if current_user %>
