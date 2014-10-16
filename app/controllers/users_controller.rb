@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
   end
+  
   def destroy
     User.destroy(current_user)
     redirect_to root_path, notice: "Sorry to see you go!"

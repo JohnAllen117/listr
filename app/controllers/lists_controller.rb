@@ -6,6 +6,9 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    if current_user
+      @like = @list.liked_list?(current_user)
+    end
   end
 
   def new
@@ -28,12 +31,12 @@ class ListsController < ApplicationController
 
   def edit
     @list = List.find(params[:id])
-    authenticate_user_for_action!
+    authenticate_user_for_action!(@list)
   end
 
   def update
     @list = List.find(params[:id])
-    authenticate_user_for_action!
+    authenticate_user_for_action!(@list)
     if @list.update(list_params)
       flash[:notice] = "List updated"
       redirect_to list_path(@list)
@@ -45,7 +48,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
-    authenticate_user_for_action!
+    authenticate_user_for_action!(@list)
 
     List.destroy(params[:id])
 
@@ -55,19 +58,5 @@ class ListsController < ApplicationController
 
   def list_params
     params.require(:list).permit(:title, :content, category_ids: [])
-  end
-
-  def authenticate_user_for_action!
-    unless current_user.admin? || current_user == @list.user
-      flash[:notice] = "You aren't authorized to do that."
-      redirect_to root_path
-    end
-  end
-
-  def signed_in?
-    unless current_user
-      flash[:notice] = "You must sign in first!"
-      redirect_to root_path
-    end
   end
 end
