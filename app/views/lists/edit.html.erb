@@ -1,5 +1,4 @@
 <% provide(:title, 'Edit List') %>
-<form>
   <%= simple_form_for(@list) do |f| %>
     <%= f.error_notification %>
     <div class="row">
@@ -11,6 +10,5 @@
     <%= f.button :submit, class: "button expand" %>
 
   <% end %>
-</form>
 <break>
 <%= link_to "Unsure how to format?", "https://guides.github.com/features/mastering-markdown/", class: "button tiny", target: "_blank" %>

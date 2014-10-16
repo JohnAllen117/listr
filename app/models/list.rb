@@ -14,4 +14,16 @@ class List < ActiveRecord::Base
     end
     nil
   end
+
+  def self.search(search)
+    where('title ILIKE ?', "%#{search}%")
+  end
+
+  def self.populate_index_with(query)
+    if query[:search]
+      @lists = List.search(query[:search])
+    else
+      @lists = List.all
+    end
+  end
 end
