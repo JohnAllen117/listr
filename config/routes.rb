@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "lists#index"
   resources :users, only: [:new, :create, :show, :destroy]
   resources :lists, only: [:new, :create, :edit, :update, :show, :destroy]
-  resources :categories, only: [:new, :create, :edit, :updates]
+  resources :categories, only: [:new, :create, :edit, :update, :show]
   resources :likes, only: [:create, :destroy]
 
   get "auth/:provider/callback", to: "sessions#create"
