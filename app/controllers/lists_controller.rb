@@ -7,7 +7,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     if current_user
-      @like = @list.liked_list?(current_user)
+      @like = @list.liked_list(current_user)
     end
   end
 

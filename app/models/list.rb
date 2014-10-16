@@ -6,7 +6,7 @@ class List < ActiveRecord::Base
   validates :title, presence: true
   validates :content, presence: true
 
-  def liked_list?(current_user)
+  def liked_list(current_user)
     self.likes.each do |like|
       if like.user == current_user
         return like
