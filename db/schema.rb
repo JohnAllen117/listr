@@ -26,23 +26,21 @@ ActiveRecord::Schema.define(version: 20141015182652) do
   end
 
   create_table "likes", force: true do |t|
-    t.integer "user_id"
-    t.integer "list_id"
+    t.integer "user_id", null: false
+    t.integer "list_id", null: false
   end
 
   create_table "lists", force: true do |t|
-    t.string   "title",                  null: false
-    t.integer  "likes",      default: 0, null: false
-    t.text     "content",                null: false
+    t.string   "title",      null: false
+    t.text     "content",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id",                null: false
+    t.integer  "user_id",    null: false
   end
 
   create_table "users", force: true do |t|
     t.string   "provider",                            null: false
     t.string   "uid",                                 null: false
-    t.string   "email",                               null: false
     t.string   "name",                                null: false
     t.string   "first_name",                          null: false
     t.string   "image"

@@ -12,7 +12,6 @@ module Helpers
        uid: user.uid,
        info: {
          name: user.name,
-         email: user.email,
          first_name: user.first_name
        },
        credentials: {
