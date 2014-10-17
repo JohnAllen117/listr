@@ -1,7 +1,7 @@
 class ListsController < ApplicationController
   before_action :signed_in?, only: [:new, :create, :edit, :update, :destroy]
   def index
-    @lists = List.all
+    @lists = List.populate_index_with(params)
   end
 
   def show
@@ -54,6 +54,7 @@ class ListsController < ApplicationController
 
     redirect_to root_path, notice: "List deleted."
   end
+
   private
 
   def list_params

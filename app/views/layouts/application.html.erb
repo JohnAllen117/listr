@@ -6,7 +6,6 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "Listr" %></title>
     <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "facebook" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
@@ -22,12 +21,31 @@
     <section class="top-bar-section">
       <ul class="left active">
         <li><%= link_to "New List", new_list_path %></li>
+        <li class="has-dropdown">
+        <a href="#">Categories</a>
+        <ul class="dropdown">
+          <% Category.all.each do |category| %>
+            <li><%= link_to category.name, category_path(category) %></li>
+          <% end %>
+        </ul>
+        <li class="has-form">
+          <%= form_tag lists_path, method: 'get', class: "has-form" do %>
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <%= text_field_tag :search, nil, placeholder: "Search by title" %>
+              </div>
+              <div class="large-4 small-3 columns">
+                <%= submit_tag "Search", name: nil, class: "alert button expand" %>
+              </div>
+            </div>
+          <% end %>
+        </li>
       </ul>
     </section>
-    <section class="top-bar-section right">
-      <ul>
+    <section class="top-bar-section">
+      <ul class="right">
         <% if current_user %>
-          <li> <%= image_tag(current_user.image, class: "top_bar_picture") %></li>
+          <li class="show-for-medium-up"> <%= image_tag(current_user.image, class: "top_bar_picture") %></li>
           <% if current_user.admin? %>
             <li> <%= link_to "#{ current_user.first_name } (Admin)", user_path(current_user) %> </li>
           <% else %>
