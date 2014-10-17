@@ -3,7 +3,6 @@ class CreateUsersTable < ActiveRecord::Migration
     create_table :users do |t|
       t.string :provider, null: false
       t.string :uid, null: false
-      t.string :email, null: false, uniqueness: true
       t.string :name, null: false, uniqueness: true
       t.string :first_name, null: false
       t.string :image
