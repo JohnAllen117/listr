@@ -1,14 +1,23 @@
-li.list_element {
+.list-item-header {
   background: #2b2b2b;
   border-bottom: .15em solid rgba(62, 62, 62, 0.85);
   padding-top: 1em;
   padding-bottom: 1em;
   padding-left: 1em;
   list-style-type: none;
+  color: white;
   a, a:hover, a:active, a:visited { color: white; }
 }
 
-ul.list {
+.list-item-preview {
+  display: none;
+}
+
+.list-item-preview-open {
+  display: block;
+}
+
+.list {
   margin: 0;
 }
 
@@ -18,4 +27,8 @@ ul.list {
 
 .top-bar-section li:not(.has-form) a:not(.button) {
   line-height: 45px !important;
+}
+
+.index-content-link {
+  padding-right: 20px;
 }

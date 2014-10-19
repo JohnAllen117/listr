@@ -1,15 +1,22 @@
 <div class="row collapse">
-  <div class="small-12 large-4 columns">
+  <div>
     <ul class="list">
     <% @lists.each do |list| %>
-      <li class="list_element"><%= link_to "#{list.likes.count} - #{list.title}", list_path(list) %></li>
+      <li class="list-item">
+        <div class="list-item-header">
+          <p>
+            <%= "#{list.likes.count} - #{list.title}" %>
+            <%= link_to "->", list, class: "index-content-link right" %>
+          </p>
+        </div>
+
+        <div class="list-item-preview markdown-content">
+          <h1> List Content </h1>
+          <%= render_markdown(list.content) %>
+          <%= link_to 'Go', list_path(list) %>
+        </div>
+      </li>
     <% end %>
     </ul>
-  </div>
-  <div class="small-12 show-for-medium-up">
-    <h1>Markdown</h1>
-    <p>
-      other stuff
-    </p>
   </div>
 </div>
