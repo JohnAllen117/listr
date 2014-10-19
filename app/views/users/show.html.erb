@@ -9,5 +9,5 @@
 <% end %>
 <h1> Liked Lists </h1>
 <% @user.likes.each do |like| %>
-  <%= like.list.title %>
+  <%= link_to like.list.title, like.list %>
 <% end %>
