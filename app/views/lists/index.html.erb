@@ -1,5 +1,5 @@
 <div class="row collapse">
-  <div class="small-12 large-4 columns">
+  <div>
     <ul class="list">
     <% @lists.each do |list| %>
       <li class="list-item">
@@ -11,8 +11,7 @@
         </div>
 
         <div class="list-item-preview markdown-content">
-          <h1>Markdown</h1>
-
+          <h1> List Content </h1>
           <%= render_markdown(list.content) %>
           <%= link_to 'Go', list_path(list) %>
         </div>
