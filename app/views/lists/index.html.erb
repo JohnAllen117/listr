@@ -13,7 +13,7 @@
         <div class="list-item-preview markdown-content">
           <h1> List Content </h1>
           <%= render_markdown(list.content) %>
-          <%= link_to 'Go', list_path(list) %>
+          <%= link_to 'Go', list_path(list), class: "label radius small" %>
         </div>
       </li>
     <% end %>
