@@ -4,7 +4,7 @@
   <div class="row">
     <div class="large-12 columns">
       <%= f.input :title, required: true, autofocus: true %>
-      <%= f.input :content, require: true, as: :text, input_html: { rows: 25 } %>
+      <%= f.input :content, require: true, as: :text, input_html: { rows: 20 } %>
       <%= f.association :categories, as: :check_boxes %>
     </div>
   <%= f.button :submit, class: "button expand" %>

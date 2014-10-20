@@ -40,8 +40,29 @@
 }
 
 .list-content{
-  margin-left: 27%;
-  margin-right: 30%;
+  margin-left: 20%;
+  margin-right: 20%;
   border: solid .1em grey;
   padding: 1%;
+}
+
+.list-title{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.list-header{
+  margin-left: 30%;
+  margin-right: 33%;
+  padding-bottom: 5px;
+}
+
+.category-label{
+  color: white;
+}
+
+.category-title {
+margin-top: 0;
+margin-bottom: 0;
+padding-bottom: 5px;
 }
