@@ -15,6 +15,12 @@
 
 .list-item-preview-open {
   display: block;
+  width: 100%;
+  padding-left: 27%;
+  padding-right: 30%;
+  background-color: silver;
+  border-top: solid silver;
+  border-bottom: 1px solid rgba(62, 62, 62, 0.85);
 }
 
 .list {
@@ -31,4 +37,59 @@
 
 .index-content-link {
   padding-right: 20px;
+}
+
+.list-content{
+  margin-left: 20%;
+  margin-right: 20%;
+  border: solid .1em grey;
+  padding: 1%;
+}
+
+.list-title{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.list-header{
+  margin-left: 30%;
+  margin-right: 33%;
+  padding-bottom: 5px;
+}
+
+.category-label{
+  color: white;
+}
+
+.category-title {
+margin-top: 0;
+margin-bottom: 0;
+padding-bottom: 5px;
+}
+
+.notice, .alert-box{
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+}
+
+.notice{
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  margin-bottom: 0;
+}
+
+.alert-box{
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
 }
