@@ -1,10 +1,10 @@
-<% provide(:title, 'Create New List') %>
+<% provide(:title, "Create New List") %>
 <%= simple_form_for(@list) do |f| %>
   <%= f.error_notification %>
   <div class="row">
     <div class="large-12 columns">
-      <%= f.input :title, required: true, autofocus: true %>
-      <%= f.input :content, require: true, as: :text, input_html: { rows: 20 } %>
+      <%= f.input :title, required: true, autofocus: true%>
+      <%= f.input :content, require: true, as: :text, input_html: { rows: 20 }, hint: "(Double Enter for newline.)"  %>
       <%= f.association :categories, as: :check_boxes %>
     </div>
   <%= f.button :submit, class: "button expand" %>
