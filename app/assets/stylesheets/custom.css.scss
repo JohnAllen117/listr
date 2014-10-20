@@ -15,6 +15,12 @@
 
 .list-item-preview-open {
   display: block;
+  width: 100%;
+  padding-left: 27%;
+  padding-right: 30%;
+  background-color: silver;
+  border-top: solid silver;
+  border-bottom: 1px solid rgba(62, 62, 62, 0.85);
 }
 
 .list {
@@ -31,4 +37,11 @@
 
 .index-content-link {
   padding-right: 20px;
+}
+
+.list-content{
+  margin-left: 27%;
+  margin-right: 30%;
+  border: solid .1em grey;
+  padding: 1%;
 }
