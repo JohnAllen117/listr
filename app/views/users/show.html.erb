@@ -7,7 +7,9 @@
 <% if current_user && current_user == @user %>
   <%= link_to "Delete", @user, class: "button small alert radius", method: :delete, data: { confirm: 'Are you sure?' } %><br>
 <% end %>
-<h1> Liked List </h1>
-<% @user.likes.each do |like| %>
-  <%= link_to like.list.title, like.list %>
-<% end %>
+<h1> Liked Lists </h1>
+<ul>
+  <% @user.likes.each do |like| %>
+    <li><%= link_to like.list.title, like.list %></li>
+  <% end %>
+</ul>
