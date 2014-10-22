@@ -1,0 +1,9 @@
+<% provide(:title, "Create New Comment") %>
+<%= simple_form_for(@list, @comment) do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="large-12 columns">
+      <%= f.input :content, required: true, autofocus: true %>
+    </div>
+    <%= f.buttin :submit, class: "button expand" %>
+<% end %>
