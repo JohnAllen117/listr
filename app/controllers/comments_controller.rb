@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
 
     redirect_to list_path(@list.id), notice: "Comment deleted."
   end
-
+  
   private
   def comment_params
     params.require(:comment).permit(:content)

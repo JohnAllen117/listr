@@ -12,7 +12,6 @@ feature "User comments on a list" do
     expect(page).to have_content("Comment Created")
     expect(page).to have_content("This is a comment")
   end
-  # 
   # scenario "unsuccessfully" do
   #   sign_in_as(user)
   #   visit list_path(list)
@@ -26,7 +25,6 @@ end
 feature "User edits a comment" do
   let(:user) { FactoryGirl.create(:user) }
   let(:list) { FactoryGirl.create(:list) }
-  
   scenario "successfully" do
     sign_in_as(user)
     visit list_path(list)
@@ -45,7 +43,6 @@ end
 feature "User deletes a comment" do
   let(:user) { FactoryGirl.create(:user) }
   let(:list) { FactoryGirl.create(:list) }
-  
   scenario "successfully" do
     sign_in_as(user)
     visit list_path(list)

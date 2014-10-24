@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   end
   resources :likes, only: [:create, :destroy] 
   resources :categories, only: [:new, :create, :edit, :update, :show]
-   
   get "auth/:provider/callback", to: "sessions#create"
   get "auth/failure", to: redirect("/")
   get "signout", to: "sessions#destroy", as: "signout"
