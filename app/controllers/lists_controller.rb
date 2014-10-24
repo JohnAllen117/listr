@@ -6,6 +6,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @comments = @list.comments.all
     if current_user
       @like = @list.liked_list(current_user)
     end

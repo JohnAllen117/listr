@@ -20,5 +20,8 @@
     </div>
   <% end %>
 </div>
+<% @comments.each do |comment| %>
+  <%= comment.content %>
+<% end %>
 <%= link_to "New Comment", new_list_comment_path(@list), class: "button small radius" %>
 

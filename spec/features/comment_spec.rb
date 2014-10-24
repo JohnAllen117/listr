@@ -8,6 +8,8 @@ feature "User comments on a list" do
     visit list_path(list)
     click_on "New Comment"
     fill_in "Content", with: "This is a comment"
-    click_on "Create Comment" 
+    click_on "Create Comment"
+    
+    expect(page).to have_content("Comment Created")
   end
 end
