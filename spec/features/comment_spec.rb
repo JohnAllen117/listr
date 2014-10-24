@@ -7,7 +7,7 @@ feature "User comments on a list" do
     sign_in_as(user)
     visit list_path(list)
     click_on "New Comment"
-
-    expect(page).to have_content "New Comment"
+    fill_in "Content", with: "This is a comment"
+    click_on "Create Comment" 
   end
 end
