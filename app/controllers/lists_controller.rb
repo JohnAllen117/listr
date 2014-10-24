@@ -51,7 +51,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     authenticate_user_for_action!(@list)
 
-    List.destroy(params[:id])
+    List.destroy(@list.id)
 
     redirect_to root_path, notice: "List deleted."
   end
