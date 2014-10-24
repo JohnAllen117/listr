@@ -6,6 +6,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @comments = @list.comments.all
     if current_user
       @like = @list.liked_list(current_user)
     end
@@ -50,7 +51,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     authenticate_user_for_action!(@list)
 
-    List.destroy(params[:id])
+    List.destroy(@list.id)
 
     redirect_to root_path, notice: "List deleted."
   end
