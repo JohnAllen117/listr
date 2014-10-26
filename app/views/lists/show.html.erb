@@ -28,6 +28,7 @@
       <%= link_to "Edit Comment", edit_list_comment_path(@list, comment), class: "button small radius" %>
       <%= link_to "Delete Comment", [@list, comment], class: "button small alert radius", method: :delete, data: { confirm: 'Are you sure?' } %><br>
     <% end %>
+    <hr>
   </div>
 <% end %>
 <%= link_to "New Comment", new_list_comment_path(@list), class: "button small radius" %>
