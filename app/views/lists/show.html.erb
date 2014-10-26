@@ -23,8 +23,9 @@
 <h1> Comments </h1>
 <% @comments.each do |comment| %>
   <div class="comment-box">
-  <%= comment.content %>
+    <div class="comment"><%= comment.content %></div>
     <% if current_user && current_user.admin? || comment.user == current_user %>
+      <br>
       <%= link_to "Edit Comment", edit_list_comment_path(@list, comment), class: "button small radius" %>
       <%= link_to "Delete Comment", [@list, comment], class: "button small alert radius", method: :delete, data: { confirm: 'Are you sure?' } %><br>
     <% end %>
