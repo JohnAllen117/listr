@@ -1,4 +1,6 @@
-<h1 class="list-title"><%= "#{@list.likes.count} - #{@list.title}" %></h1>
+<h1 class="list-title">
+  <%= "#{@list.likes.count} - #{@list.title}" %>
+</h1>
 <div class="list-header">
   <% if current_user %>
     <% if @like %>
@@ -13,6 +15,7 @@
 </div>
 <div class="list-content">
   <%= render_markdown(@list.content) %>
+  <span class="comment-name"><%= link_to "- #{@list.user.first_name}", @list.user %></span>
   <% if current_user && current_user.admin? || @list.user = current_user %>
     <div class="list-buttons">
       <%= link_to 'Edit', edit_list_path(@list), class: "button small radius" %>
@@ -20,13 +23,20 @@
     </div>
   <% end %>
 </div>
-<h1> Comments </h1>
+<h1 class="comment-header"> Comments </h1>
 <% @comments.each do |comment| %>
-  <%= comment.content %>
-  <% if current_user && current_user.admin? || comment.user == current_user %>
-    <%= link_to "Edit Comment", edit_list_comment_path(@list, comment), class: "button small radius" %>
-    <%= link_to "Delete Comment", [@list, comment], class: "button small alert radius", method: :delete, data: { confirm: 'Are you sure?' } %><br>
-  <% end %>
+  <div class="comment-box">
+    <div class="comment">
+      <%= comment.content %>
+      <span class="comment-name right"><%= link_to "- #{comment.user.first_name}", comment.user %></span>
+    </div>
+    <% if current_user && current_user.admin? || comment.user == current_user %>
+      <br>
+      <%= link_to "Edit Comment", edit_list_comment_path(@list, comment), class: "button small radius" %>
+      <%= link_to "Delete Comment", [@list, comment], class: "button small alert radius", method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    <% end %>
+    <hr>
+  </div>
 <% end %>
 <%= link_to "New Comment", new_list_comment_path(@list), class: "button small radius" %>
 

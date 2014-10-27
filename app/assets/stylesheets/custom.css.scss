@@ -62,9 +62,9 @@
 }
 
 .category-title {
-margin-top: 0;
-margin-bottom: 0;
-padding-bottom: 5px;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 5px;
 }
 
 .notice, .alert-box{
@@ -92,4 +92,30 @@ padding-bottom: 5px;
   background-color: #f2dede;
   border-color: #eed3d7;
   color: #b94a48;
+}
+
+.comment-box{
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.comment{
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin-left: 0.5em;
+  position: relative;
+  min-height: 50px;
+}
+
+.comment-header{
+  margin-left: 10%;
+  margin-right: 10%; 
+}
+
+.comment-name{
+  padding-right: 10px;
+  color: white;
+  a, a:active, a:visited { color: black; }
+  a:hover { color: grey; }
 }
