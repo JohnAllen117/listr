@@ -100,11 +100,22 @@
 }
 
 .comment{
-  border: solid 1px;
-  padding: 10px;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 0.5em;
+  margin-left: 0.5em;
+  position: relative;
+  min-height: 50px;
 }
 
 .comment-header{
   margin-left: 10%;
   margin-right: 10%; 
+}
+
+.comment-name{
+  padding-right: 10px;
+  color: white;
+  a, a:active, a:visited { color: black; }
+  a:hover { color: grey; }
 }
