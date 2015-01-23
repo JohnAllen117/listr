@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.user = User.find(current_user)
+    @comment.user = User.find(current_user.id)
     @comment.list = List.find(params[:list_id])
     if @comment.save
       flash[:notice] = "Comment Created"
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
     @list = @comment.list
     authenticate_user_for_action!(@comment)
   end
-  
+
   def update
     @comment = Comment.find(params[:id])
     authenticate_user_for_action!(@comment)
@@ -38,14 +38,14 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @list = @comment.list 
+    @list = @comment.list
     authenticate_user_for_action!(@comment)
 
     Comment.destroy(@comment.id)
 
     redirect_to list_path(@list.id), notice: "Comment deleted."
   end
-  
+
   private
   def comment_params
     params.require(:comment).permit(:content)

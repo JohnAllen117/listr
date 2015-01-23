@@ -11,7 +11,7 @@ class LikesController < ApplicationController
     @like = Like.find_by(user_id: current_user.id, list_id: params[:list_id])
     authenticate_user_for_action!(@like)
 
-    Like.destroy(@like)
+    Like.destroy(@like.id)
 
     redirect_to list_path(@like.list)
   end

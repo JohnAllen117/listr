@@ -38,5 +38,7 @@
     <hr>
   </div>
 <% end %>
-<%= link_to "New Comment", new_list_comment_path(@list), class: "button small radius" %>
+<% if current_user %>
+  <%= link_to "New Comment", new_list_comment_path(@list), class: "button small radius" %>
+<% end %>
 
