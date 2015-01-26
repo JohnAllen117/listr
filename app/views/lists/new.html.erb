@@ -5,6 +5,7 @@
     <div class="large-12 columns">
       <%= f.input :title, required: true, autofocus: true %>
       <%= f.input :content, require: true, as: :text, input_html: { rows: 20 }, hint: "(Double Enter for newline.)"  %>
+      <%= f.input :private, as: :select, require: true, default: false %>
       <%= f.association :categories, as: :check_boxes %>
     </div>
   <%= f.button :submit, class: "button expand" %>

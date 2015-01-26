@@ -7,7 +7,7 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     if @list.private
-      if current_user != @list.user
+      if current_user != @list.user || current_user.admin
         flash[:notice] = "This list is private"
         redirect_to root_path
       end

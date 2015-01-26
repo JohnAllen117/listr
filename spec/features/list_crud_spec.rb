@@ -1,5 +1,5 @@
 require "rails_helper"
-  feature "User creates a list" do
+feature "User creates a list" do
   let(:user) { FactoryGirl.create(:user) }
   scenario "successfully" do
     sign_in_as(user)
