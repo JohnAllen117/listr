@@ -6,6 +6,12 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    if @list.private
+      if current_user != @list.user
+        flash[:notice] = "This list is private"
+        redirect_to root_path
+      end
+    end
     @comments = @list.comments.all
     if current_user
       @like = @list.liked_list(current_user)
