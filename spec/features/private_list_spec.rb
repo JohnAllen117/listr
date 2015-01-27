@@ -18,9 +18,9 @@ feature "people visit the list" do
   let(:list) { FactoryGirl.create(:private_list) }
   let(:admin) { FactoryGirl.create(:admin) }
   scenario "owner visits" do
-    sign_in_as(user)
+    sign_in_as(list.user)
     visit list_path(list)
-    expect(page).to have_content "private"
+    expect(page).to have_content "PRIVATE"
   end
 
   scenario "non-owner visits" do
@@ -33,6 +33,6 @@ feature "people visit the list" do
     sign_in_as(admin)
     visit list_path(list)
 
-    expect(page).to have_content "private"
+    expect(page).to have_content "PRIVATE"
   end
 end
