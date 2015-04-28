@@ -1,5 +1,8 @@
 <h1 class="list-title">
   <%= "#{@list.likes.count} - #{@list.title}" %>
+  <% if @list.private %>
+    <p> PRIVATE </p>
+  <% end %>
 </h1>
 <div class="list-header">
   <% if current_user %>
@@ -41,4 +44,3 @@
 <% if current_user %>
   <%= link_to "New Comment", new_list_comment_path(@list), class: "button small radius" %>
 <% end %>
-

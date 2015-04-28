@@ -6,6 +6,17 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    if @list.private
+      if current_user == nil
+        flash[:notice] = "This list is private, please sign in."
+        redirect_to root_path
+        return
+      end
+      unless current_user == @list.user || current_user.admin?
+        flash[:notice] = "This list is private"
+        redirect_to root_path
+      end
+    end
     @comments = @list.comments.all
     if current_user
       @like = @list.liked_list(current_user)
@@ -59,6 +70,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.require(:list).permit(:title, :content, category_ids: [])
+    params.require(:list).permit(:title, :content, :private, category_ids: [])
   end
 end
