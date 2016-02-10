@@ -8,7 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'simple_form'
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.4.5'
 gem 'font-awesome-rails'
 gem 'rails_12factor', group: :production
 gem 'redcarpet'

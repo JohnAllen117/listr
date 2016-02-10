@@ -16,27 +16,27 @@ ActiveRecord::Schema.define(version: 20141027235826) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name", null: false
   end
 
-  create_table "categorizations", force: true do |t|
+  create_table "categorizations", force: :cascade do |t|
     t.integer "list_id",     null: false
     t.integer "category_id", null: false
   end
 
-  create_table "comments", force: true do |t|
+  create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "list_id", null: false
     t.string  "content", null: false
   end
 
-  create_table "likes", force: true do |t|
+  create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "list_id", null: false
   end
 
-  create_table "lists", force: true do |t|
+  create_table "lists", force: :cascade do |t|
     t.string   "title",                      null: false
     t.text     "content",                    null: false
     t.datetime "created_at"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20141027235826) do
     t.boolean  "private",    default: false
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "provider",                            null: false
     t.string   "uid",                                 null: false
     t.string   "name",                                null: false

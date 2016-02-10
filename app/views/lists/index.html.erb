@@ -7,7 +7,9 @@
           <div class="list-item-header">
             <p>
               <%= "#{list.likes.count} - #{list.title}" %>
-              <%= link_to "->", list, class: "index-content-link right" %>
+              <%= link_to list, class: "index-content-link right" do %>
+                <i class="fa fa-arrow-right fa-lg"></i>
+              <% end %>
             </p>
           </div>
 

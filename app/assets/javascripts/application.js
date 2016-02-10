@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require foundation
 //= require facebook
-
+//= require_tree .
 $(function(){
   $(document).foundation();
     $('.list-item').on('click', '.list-item-header', function(event) {
